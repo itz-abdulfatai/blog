@@ -1,0 +1,212 @@
+/* hero background image will be post image */
+
+.hero {
+  display: flex;
+  position: relative;
+  height: 60vh;
+  background-image: url("../images/post-covers/1001.webp");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  justify-content: center;
+  align-items: center;
+  padding-top: 150px;
+}
+
+.hero .intro {
+  display: flex;
+  padding: 0 100px;
+  flex-direction: column;
+  justify-content: center;
+  gap: 25px;
+  color: var(--bg-primary);
+}
+
+.intro h2 {
+  font-weight: 300;
+}
+
+section.hero * {
+  z-index: 2;
+}
+
+.hero-newsletter input {
+  width: 80%;
+  color: var(--bg-secondary);
+  height: 40px;
+  padding: 10px;
+}
+
+.hero-newsletter button {
+  color: var(--bg-primary);
+  background-color: var(--accent-primary);
+  height: 40px;
+  padding: 0 20px;
+  border-radius: 20px;
+  border: none;
+}
+
+.hero-newsletter {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.hero .description {
+  font-size: 0.8rem;
+  display: flex;
+  justify-content: flex-starts;
+  gap: 30px;
+}
+
+section.blog-content {
+    background-color: var(--bg-primary);
+    color: var(--bg-secondary);
+    height: auto;
+
+
+}
+section.blog-content h1{
+    margin-left: 200px;
+
+
+}
+
+.author {
+    color: var(--accent-secondary);
+
+}
+
+.blog-content > p {
+    margin-top: 20px;
+}
+
+.post-content {
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 800px;
+    text-align: justify;
+}
+
+
+.comments {
+    max-width: 800px;
+    margin: 20px auto;
+    color: var(--accent-secondary);
+    background-color: var(--bg-secondary);
+    padding: 20px 0;
+    border-radius: 20px;
+
+}
+
+.comments h2 {
+    color: var(--bg-primary);
+    margin-bottom: 20px;
+    margin-left: 40px;
+}
+
+
+.comments-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: stretch;
+    gap: 10px;
+    padding: 40px;
+
+}
+
+
+.unit-comment {
+    padding: 20px;
+    border-radius: 20px;
+    background-color: var(--bg-primary);
+}
+
+.unit-comment .name {
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+
+.unit-comment .comment {
+    color: var(--bg-secondary);
+}
+
+
+.unit-blog {
+    display: grid;
+    height: 450px;
+    grid-template-rows: 45% 55%;
+    gap: 5px;
+    background-color: #ffff;
+    grid-template-columns: 100%;
+    color: var(--bg-secondary);
+}
+
+
+.unit-blog .up a {
+    width: 100%;
+    height: 100%;
+
+
+}
+
+.unit-blog .up a img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+
+}
+
+.unit-blog .down {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 25px;
+    
+
+}
+
+.unit-blog .down .description {
+    font-size: 0.7rem;
+    display: flex;
+    justify-content: flex-starts;
+    gap: 20px;
+}
+
+.unit-blog .down .snippet p {
+    font-size: 1rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    line-height: 1.3rem;
+}
+
+section.related-posts h2 {
+    color: var(--bg-secondary);
+    margin-left: 200px;
+
+}
+
+
+.related-posts-container {
+    margin: 40px auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 70%;
+    gap: 30px;
+}
+
+.comment-edit {
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+    padding: 5px 0 0 0;
+}

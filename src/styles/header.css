@@ -1,0 +1,35 @@
+
+.header{
+    padding: 10px 40px;
+    display: grid;
+    grid-template-columns: 30% 30%;
+    justify-content: space-between;
+    align-items: center;
+    /* background-color: var(--bg-primary); */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+  }
+  
+  .logo {
+    width: 200px;
+    max-height: 100%;
+    object-fit: cover;
+  }
+  
+  nav {
+    display: flex;
+    justify-content: flex-start;
+    gap: 50px;
+  }
+  
+  nav a {
+    color: var(--bg-secondary);
+    font-size: 1.2rem;
+  }
+  
+  nav a:hover {
+    color: var(--accent-primary);
+  }
