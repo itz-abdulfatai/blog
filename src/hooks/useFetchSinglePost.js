@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 
-const UseFetchPost = (url) => {
+const UseFetchSinglePost = (url) => {
   const [data, setData] = useState(null);
-  const [randomisedPosts, setRandomisedPosts] = useState(null);
   const [isPending, setIsPending] = useState(true);
   const [error, setError] = useState(null);
   const [finished, setFinished] = useState(false);
@@ -22,7 +21,6 @@ const UseFetchPost = (url) => {
       .then((data) => {
         setIsPending(false);
         setData(data);
-        setRandomisedPosts(data.slice().sort(() => Math.random() - 0.5));
         setFinished(true);
         setError(null);
       })
@@ -36,7 +34,7 @@ const UseFetchPost = (url) => {
     };
   }, [url, location]);
 
-  return { data, error, isPending, randomisedPosts, finished };
+  return { data, error, isPending, finished, setData };
 };
 
-export default UseFetchPost;
+export default UseFetchSinglePost;

@@ -1,4 +1,4 @@
-section.hero {
+.blogs-main section.hero {
     display: grid;
     position: relative;
     height: 100vh;
@@ -9,7 +9,7 @@ section.hero {
 
 }
 
-.hero .intro {
+.blogs-main .hero .intro {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -18,22 +18,22 @@ section.hero {
 
 }
 
-.intro h2 {
+.blogs-main .intro h2 {
     font-weight: 300;
 }
 
-.intro .Big-text {
+.blogs-main .intro .Big-text {
     font-weight: 900;
     font-size: 3rem;
 }
 
 
-section.hero * {
+.blogs-main section.hero * {
     z-index: 2;
 }
 
 
-.hero-newsletter input {
+.blogs-main .hero-newsletter input {
     width: 80%;
     color: var(--bg-secondary);
     height: 40px;
@@ -41,7 +41,7 @@ section.hero * {
     
 }
 
-.hero-newsletter button {
+.blogs-main .hero-newsletter button {
     color: var(--bg-primary);
     background-color: var(--accent-primary);
     height: 40px;
@@ -51,24 +51,24 @@ section.hero * {
 
 }
 
-.hero-newsletter {
+.blogs-main .hero-newsletter {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
     gap: 20px;
 }
-section.blogs {
+.blogs-main section.blogs {
     height: auto;
     background-color: var(--bg-primary);
 }
-section.blogs h2{
+.blogs-main section.blogs h2{
     text-align: center;
     color: var(--bg-secondary);
 }
 
 
-.blogs-container {
+.blogs-main .blogs-container {
     width: 80%;
     margin: 40px auto 0 auto;
     display: grid;
@@ -78,7 +78,7 @@ section.blogs h2{
 }
 
 
-.unit-blog {
+.blogs-main .unit-blog {
     display: grid;
     height: 450px;
     grid-template-rows: 45% 55%;
@@ -89,14 +89,14 @@ section.blogs h2{
 }
 
 
-.unit-blog .up a {
+.blogs-main .unit-blog .up a {
     width: 100%;
     height: 100%;
 
 
 }
 
-.unit-blog .up a img{
+.blogs-main .unit-blog .up a img{
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -104,7 +104,7 @@ section.blogs h2{
 
 }
 
-.unit-blog .down {
+.blogs-main .unit-blog .down {
     padding: 10px;
     display: flex;
     flex-direction: column;
@@ -114,14 +114,14 @@ section.blogs h2{
 
 }
 
-.unit-blog .down .description {
+.blogs-main .unit-blog .down .description {
     font-size: 0.7rem;
     display: flex;
     justify-content: flex-starts;
     gap: 20px;
 }
 
-.unit-blog .down .snippet p {
+.blogs-main .unit-blog .down .snippet p {
     font-size: 1rem;
     display: -webkit-box;
     -webkit-line-clamp: 3;

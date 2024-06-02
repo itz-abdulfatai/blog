@@ -1,6 +1,7 @@
 /* hero background image will be post image */
 
-.hero {
+
+.post-main .hero {
   display: flex;
   position: relative;
   height: 60vh;
@@ -12,7 +13,7 @@
   padding-top: 150px;
 }
 
-.hero .intro {
+.post-main .hero .intro {
   display: flex;
   padding: 0 100px;
   flex-direction: column;
@@ -21,22 +22,22 @@
   color: var(--bg-primary);
 }
 
-.intro h2 {
+.post-main .intro h2 {
   font-weight: 300;
 }
 
-section.hero * {
+.post-main section.hero * {
   z-index: 2;
 }
 
-.hero-newsletter input {
+.post-main .hero-newsletter input {
   width: 80%;
   color: var(--bg-secondary);
   height: 40px;
   padding: 10px;
 }
 
-.hero-newsletter button {
+.post-main .hero-newsletter button {
   color: var(--bg-primary);
   background-color: var(--accent-primary);
   height: 40px;
@@ -45,7 +46,7 @@ section.hero * {
   border: none;
 }
 
-.hero-newsletter {
+.post-main .hero-newsletter {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -53,36 +54,36 @@ section.hero * {
   gap: 20px;
 }
 
-.hero .description {
+.post-main .hero .description {
   font-size: 0.8rem;
   display: flex;
   justify-content: flex-starts;
   gap: 30px;
 }
 
-section.blog-content {
+.post-main section.blog-content {
     background-color: var(--bg-primary);
     color: var(--bg-secondary);
     height: auto;
 
 
 }
-section.blog-content h1{
+.post-main section.blog-content h1{
     margin-left: 200px;
 
 
 }
 
-.author {
+.post-main .author {
     color: var(--accent-secondary);
 
 }
 
-.blog-content > p {
+.post-main .blog-content > p {
     margin-top: 20px;
 }
 
-.post-content {
+.post-main .post-content {
     margin: 20px auto;
     display: flex;
     flex-direction: column;
@@ -92,7 +93,7 @@ section.blog-content h1{
 }
 
 
-.comments {
+.post-main .comments {
     max-width: 800px;
     margin: 20px auto;
     color: var(--accent-secondary);
@@ -102,14 +103,14 @@ section.blog-content h1{
 
 }
 
-.comments h2 {
+.post-main .comments h2 {
     color: var(--bg-primary);
     margin-bottom: 20px;
     margin-left: 40px;
 }
 
 
-.comments-container {
+.post-main .comments-container {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -120,24 +121,24 @@ section.blog-content h1{
 }
 
 
-.unit-comment {
+.post-main .unit-comment {
     padding: 20px;
     border-radius: 20px;
     background-color: var(--bg-primary);
 }
 
-.unit-comment .name {
+.post-main .unit-comment .name {
     font-weight: 700;
     font-size: 1.2rem;
 }
 
 
-.unit-comment .comment {
+.post-main .unit-comment .comment {
     color: var(--bg-secondary);
 }
 
 
-.unit-blog {
+.post-main .unit-blog {
     display: grid;
     height: 450px;
     grid-template-rows: 45% 55%;
@@ -148,14 +149,14 @@ section.blog-content h1{
 }
 
 
-.unit-blog .up a {
+.post-main .unit-blog .up a {
     width: 100%;
     height: 100%;
 
 
 }
 
-.unit-blog .up a img{
+.post-main .unit-blog .up a img{
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -163,7 +164,7 @@ section.blog-content h1{
 
 }
 
-.unit-blog .down {
+.post-main .unit-blog .down {
     padding: 10px;
     display: flex;
     flex-direction: column;
@@ -173,14 +174,14 @@ section.blog-content h1{
 
 }
 
-.unit-blog .down .description {
+.post-main .unit-blog .down .description {
     font-size: 0.7rem;
     display: flex;
     justify-content: flex-starts;
     gap: 20px;
 }
 
-.unit-blog .down .snippet p {
+.post-main .unit-blog .down .snippet p {
     font-size: 1rem;
     display: -webkit-box;
     -webkit-line-clamp: 3;
@@ -189,14 +190,14 @@ section.blog-content h1{
     line-height: 1.3rem;
 }
 
-section.related-posts h2 {
+.post-main section.related-posts h2 {
     color: var(--bg-secondary);
     margin-left: 200px;
 
 }
 
 
-.related-posts-container {
+.post-main .related-posts-container {
     margin: 40px auto;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -204,9 +205,30 @@ section.related-posts h2 {
     gap: 30px;
 }
 
-.comment-edit {
+.post-main .comment-edit {
     display: flex;
     justify-content: flex-start;
-    gap: 20px;
+    align-items: center;
+    gap: 10px;
     padding: 5px 0 0 0;
+}
+
+.post-main .comment-edit input {
+    height: 25px;
+    background-color: var(--bg-primary);
+    border: none;
+    outline: #2e4c66;
+    padding: 0 5px;
+    border-radius: 5px;
+
+    
+}
+
+
+.post-main .comment-btn {
+    height: 25px;
+    border: none;
+    background-color: #2e4c66;
+    color: #ffff;
+
 }

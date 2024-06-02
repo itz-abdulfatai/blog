@@ -1,0 +1,63 @@
+.CreatePost-main .post-details {
+    padding-top: 100px;
+    background-color: aliceblue;
+
+
+} 
+
+.CreatePost-main h1 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.CreatePost-main form {
+    display: grid;
+    grid-template-rows: 1fr 2fr 1fr 2fr 1fr 2fr 1fr 5fr;
+    justify-content: stretch;
+    gap: 3px;
+    background-color: #ffff;
+    width: 400px;
+    height: 500px;
+    max-width: 80%;
+    margin: 0 auto;
+    padding: 25px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 50px rgba(0, 0, 0, 0.01);
+
+
+}
+
+
+.CreatePost-main form label {
+    font-weight: 550;
+    font-size: 1rem;
+    text-transform: capitalize;
+    color: #2e4c66;
+}
+
+.CreatePost-main form input, 
+.CreatePost-main form textarea {
+    background-color: aliceblue;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    height: 35px;
+    color: #2e4c66;
+    font-weight: 550;
+    outline-color: aliceblue;
+}
+
+
+.CreatePost-main form textarea {
+    height: 130px;
+    resize: none;
+}
+
+
+.CreatePost-main form button {
+    height: 50px;
+    margin-top: 20px;
+    border: none;
+    background-color: #2e4c66;
+    color: #ffff;
+}

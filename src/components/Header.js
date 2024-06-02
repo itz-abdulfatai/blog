@@ -24,7 +24,7 @@ const Header = () => {
       <nav>
         <Link to="#get-started" onClick={navigateById}>get started</Link>
         <Link to="/blogs">Blog</Link>
-        <Link to="/login">Login</Link>
+        <Link to="/create">create</Link>
       </nav>
     </div>
   );
