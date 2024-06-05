@@ -7,6 +7,13 @@ const Post = ({ post }) => {
   function handlePostDelete () {
     fetch(`http://localhost:8000/posts/${post.id}`, {
       method: "DELETE"
+    }).then((response) => {
+      return response.json()
+
+    }).then(updatedPosts => {
+      console.log(updatedPosts)
+    }).catch(error => {
+      alert(error)
     })
   }
 
