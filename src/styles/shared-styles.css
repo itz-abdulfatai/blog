@@ -106,6 +106,15 @@ a {
   color: var(--bg-secondary);
 }
 
+.readmore-cta button {
+  margin-left: 15px;
+  font-weight: 600;
+  text-transform: capitalize;
+  padding: 13px 15px;
+  border-radius: 20px;
+}
+
+
 .readmore-cta a:hover {
   color: var(--accent-primary);
   border: solid 3px var(--bg-secondary);

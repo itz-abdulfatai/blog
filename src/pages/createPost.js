@@ -32,7 +32,7 @@ const CreatePost = () => {
       headers: { "content-type": "application/json" },
       body: JSON.stringify({
         title: postDetails.title,
-        image: "image here",
+        image: stringImage,
         author: postDetails.author,
         date: `${today.toDateString()}`,
         views: postDetails.views,
@@ -54,12 +54,14 @@ const CreatePost = () => {
 
   function handleImage(e) {
     const file = e.target.files[0];
-    setPostDetails({...postDetails, image: file})
+    setPostDetails({...postDetails, image: e.target.value})
     if (file) {
       const reader = new FileReader();
       reader.onloadend = () => {
         setStringImage(reader.result);
-        console.log(stringImage);
+        // console.log(typeof reader.result);
+        // console.log(stringImage);
+        // console.log('done')
       };
       reader.readAsDataURL(file);
     }
