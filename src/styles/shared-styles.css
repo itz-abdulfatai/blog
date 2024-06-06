@@ -106,7 +106,8 @@ a {
   color: var(--bg-secondary);
 }
 
-.readmore-cta button {
+.readmore-cta button, 
+.post-delete-btn {
   margin-left: 15px;
   font-weight: 600;
   text-transform: capitalize;

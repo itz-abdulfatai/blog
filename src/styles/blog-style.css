@@ -46,6 +46,27 @@
   border: none;
 }
 
+.delete-post {
+    text-align: center;
+}
+
+
+.post-main button.post-delete-btn {
+     border-top: none;
+     border-left: none;
+     border-right: none;
+     border-radius: 1px;
+     margin-left: 0;
+     padding-bottom: 5px;
+    
+  }
+
+  .post-main button.post-delete-btn:hover {
+    background-color: initial;
+    color: red;
+  }
+
+
 .post-main .hero-newsletter {
   display: flex;
   flex-direction: column;

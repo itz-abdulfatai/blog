@@ -1,9 +1,11 @@
 import "../styles/blog-style.css";
 import UseFetchPost from "../hooks/UseFetchPosts";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import Post from "../components/post";
 import { useState } from "react";
 import UseFetchSinglePost from "../hooks/useFetchSinglePost";
+
+
 
 // src/styles/.css
 
@@ -14,6 +16,7 @@ const Blog = () => {
   const [newComment, setNewComment] = useState({ name: "", comment: "" });
   const [addPending, setAddPending] = useState(false);
   const [deletePending, setDeletePending] = useState(false);
+  const navigate = useNavigate()
 
   //   i would normally send two different requsest one for the post in which the endpoint will carry the id and one for the related posts so as to not expose all posts just to see one
 
@@ -63,7 +66,7 @@ const Blog = () => {
           setSingleBlog(updatedPost);
           setNewComment({ name: "", comment: "" });
           setAddPending(false);
-          setIsAddingComment(false)
+          setIsAddingComment(false);
         } catch (error) {
           alert(error);
         }
@@ -109,7 +112,22 @@ const Blog = () => {
       });
   }
 
-
+  function handlePostDelete() {
+    fetch(`http://localhost:8000/posts/${id}`, {
+      method: "DELETE",
+    })
+      .then((response) => {
+        return response.json();
+      })
+      .then((deletedPost) => {
+        console.log(deletedPost);
+        alert(` post ${singleBlog.title} deleted`)
+        navigate('/blogs')
+      })
+      .catch((error) => {
+        alert(error);
+      });
+  }
 
   return (
     <main className="post-main">
@@ -167,7 +185,6 @@ const Blog = () => {
                   <div className="name">{comment.name} </div>
                   <div className="comment">{comment.comment}</div>
                   <div className="comment-edit">
-
                     <button
                       className="comment-btn"
                       onClick={() =>
@@ -176,8 +193,8 @@ const Blog = () => {
                         )
                       }
                     >
-                      {deletePending && 'loading'}
-                      {!deletePending && 'delete'}
+                      {deletePending && "loading"}
+                      {!deletePending && "delete"}
                     </button>
                   </div>
                 </div>
@@ -216,20 +233,33 @@ const Blog = () => {
                     className="comment-btn"
                     type="reset"
                     onClick={() => {
-                      setIsAddingComment(false)
+                      setIsAddingComment(false);
                       setNewComment({ name: "", comment: "" });
                     }}
                   >
                     cancel
                   </button>
-                  
-                  <button className="comment-btn" type="submit" onClick={handleAddComment}>
-                    {addPending && 'loading'}
-                    {!addPending && 'add'}
+
+                  <button
+                    className="comment-btn"
+                    type="submit"
+                    onClick={handleAddComment}
+                  >
+                    {addPending && "loading"}
+                    {!addPending && "add"}
                   </button>
                 </form>
               </div>
             )}
+          </div>
+        </div>
+        <div className="delete-post">
+          <div>
+            click here to{" "}
+            <button className="post-delete-btn" onClick={handlePostDelete}>
+              delete
+            </button>{" "}
+            post
           </div>
         </div>
       </section>

@@ -37,7 +37,7 @@ const CreatePost = () => {
         date: `${today.toDateString()}`,
         views: postDetails.views,
         keywords: [],
-        content: postDetails.content,
+        content: postDetails.content.filter(paragraph => paragraph != ''),
         comments: [],
       }),
     })

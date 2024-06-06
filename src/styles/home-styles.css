@@ -129,6 +129,10 @@
   -webkit-line-clamp: 1;
 }
 
+.home-main .post-delete-button {
+  display: none;
+}
+
 .home-main .blogs-inner .unit-blog:nth-of-type(2) {
   grid-area: second;
   /* background-color: blue; */

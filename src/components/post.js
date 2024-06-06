@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Post = ({ post }) => {
-
+const navigate = useNavigate()
 
   function handlePostDelete () {
     fetch(`http://localhost:8000/posts/${post.id}`, {
@@ -10,8 +10,10 @@ const Post = ({ post }) => {
     }).then((response) => {
       return response.json()
 
-    }).then(updatedPosts => {
-      console.log(updatedPosts)
+    }).then((deletedPost) => {
+      alert(`post ${post.title} deleted`)
+      // ask chat gpt for better way to do this because it is bad as fuck how will i delete a post in the home page and it will take me to blog :(      navigate('/blogs')
+      console.log(deletedPost)
     }).catch(error => {
       alert(error)
     })
@@ -36,7 +38,7 @@ const Post = ({ post }) => {
         </div>
         <div className="readmore-cta">
           <Link to={`/post/${post.id}`}>read more</Link>
-          <button onClick={handlePostDelete}> delete</button>
+          <button className="post-delete-button"  onClick={handlePostDelete}> delete</button>
         </div>
       </div>
     </div>
