@@ -24,6 +24,13 @@ const CreatePost = () => {
   // }
 
   function handleSubmit(e) {
+    let imageId = `${Math.floor(Math.random() * 9999)}-${Math.floor(
+      Math.random() * 999
+    )}-${Math.floor(Math.random() * 99999)}-${Math.floor(
+      Math.random() * 99999
+    )}`;
+
+    console.log(imageId);
     setAddPending(true);
     e.preventDefault();
 
@@ -32,19 +39,32 @@ const CreatePost = () => {
       headers: { "content-type": "application/json" },
       body: JSON.stringify({
         title: postDetails.title,
-        image: stringImage,
+        image: imageId,
         author: postDetails.author,
         date: `${today.toDateString()}`,
         views: postDetails.views,
         keywords: [],
-        content: postDetails.content.filter(paragraph => paragraph != ''),
+        content: postDetails.content.filter((paragraph) => paragraph != ""),
         comments: [],
       }),
     })
       .then(() => {
-        alert("new blog added");
-        setAddPending(false);
-        navigate("/blogs");
+        fetch("http://localhost:7000/images", {
+          headers: { "content-type": "application/json" },
+          method: "POST",
+          body: JSON.stringify({
+            id: imageId,
+            imgString: stringImage,
+          }),
+        })
+          .then(() => {
+            alert("new blog added");
+            setAddPending(false);
+            navigate("/blogs");
+          })
+          .catch((error) =>
+            console.log("image storage encountered ", error.message)
+          );
       })
       .catch((err) => {
         setAddError(err);
@@ -54,7 +74,7 @@ const CreatePost = () => {
 
   function handleImage(e) {
     const file = e.target.files[0];
-    setPostDetails({...postDetails, image: e.target.value})
+    setPostDetails({ ...postDetails, image: e.target.value });
     if (file) {
       const reader = new FileReader();
       reader.onloadend = () => {
@@ -117,6 +137,7 @@ const CreatePost = () => {
           <label> image:</label>
           <input
             type="file"
+            
             accept="image/*"
             value={postDetails.image}
             onChange={handleImage}
