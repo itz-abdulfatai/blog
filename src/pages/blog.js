@@ -4,19 +4,19 @@ import { useParams, useNavigate } from "react-router-dom";
 import Post from "../components/post";
 import { useState } from "react";
 import UseFetchSinglePost from "../hooks/useFetchSinglePost";
-
-
+import useFetchImage from "../hooks/useFetchImage";
 
 // src/styles/.css
 
 const Blog = () => {
   const { id } = useParams();
-  const imagePath = require(`../images/post-covers/${id}.webp`);
+  // const imagePath = require(`../images/post-covers/${id}.webp`);
   const [isAddingComment, setIsAddingComment] = useState(false);
   const [newComment, setNewComment] = useState({ name: "", comment: "" });
   const [addPending, setAddPending] = useState(false);
   const [deletePending, setDeletePending] = useState(false);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  const { imgPending, imgFinished, imgError, stringImg } = useFetchImage(id);
 
   //   i would normally send two different requsest one for the post in which the endpoint will carry the id and one for the related posts so as to not expose all posts just to see one
 
@@ -37,6 +37,8 @@ const Blog = () => {
   } = UseFetchSinglePost(`http://localhost:8000/posts/${id}`);
   if (singleBlogError) {
     console.error(singleBlogError);
+  } else if (singleBlogFinished) {
+    console.log("blog loaded successfully");
   }
 
   function handleAddComment(e) {
@@ -113,6 +115,14 @@ const Blog = () => {
   }
 
   function handlePostDelete() {
+
+    fetch(`http://localhost:7000/images/${id}`, {
+      method: "DELETE",
+    }).catch((err) => {
+      alert("err")
+    })
+
+
     fetch(`http://localhost:8000/posts/${id}`, {
       method: "DELETE",
     })
@@ -121,8 +131,8 @@ const Blog = () => {
       })
       .then((deletedPost) => {
         console.log(deletedPost);
-        alert(` post ${singleBlog.title} deleted`)
-        navigate('/blogs')
+        alert(` post: ${singleBlog.title} deleted`);
+        navigate("/blogs");
       })
       .catch((error) => {
         alert(error);
@@ -133,11 +143,11 @@ const Blog = () => {
     <main className="post-main">
       {singleBlogPending && `${singleBlogPending}`}
       {singleBlogError && `${singleBlogError}`}
-      {singleBlogFinished && (
+      {singleBlogFinished && imgFinished && (
         <section
           className="hero"
           style={{
-            backgroundImage: `url(${imagePath})`,
+            backgroundImage: `url(${stringImg})`,
           }}
         >
           <div className="backdrop"></div>
@@ -162,6 +172,8 @@ const Blog = () => {
           </div>
         </section>
       )}
+      {imgError && `${imgError}`}
+      {imgPending && `${imgPending}`}
 
       <section className="blog-content">
         <h1 className="blog-title">{singleBlogFinished && singleBlog.title}</h1>

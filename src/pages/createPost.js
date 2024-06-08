@@ -24,13 +24,9 @@ const CreatePost = () => {
   // }
 
   function handleSubmit(e) {
-    let imageId = `${Math.floor(Math.random() * 9999)}-${Math.floor(
-      Math.random() * 999
-    )}-${Math.floor(Math.random() * 99999)}-${Math.floor(
-      Math.random() * 99999
-    )}`;
-
-    console.log(imageId);
+    let id = `${Math.floor(Math.random() * 999)}${Math.floor(Math.random() * 99)}`;
+if (stringImage !== "") {
+  console.log(id);
     setAddPending(true);
     e.preventDefault();
 
@@ -38,8 +34,9 @@ const CreatePost = () => {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify({
+        id: id,
         title: postDetails.title,
-        image: imageId,
+        image: id,
         author: postDetails.author,
         date: `${today.toDateString()}`,
         views: postDetails.views,
@@ -53,7 +50,7 @@ const CreatePost = () => {
           headers: { "content-type": "application/json" },
           method: "POST",
           body: JSON.stringify({
-            id: imageId,
+            id: id,
             imgString: stringImage,
           }),
         })
@@ -70,6 +67,11 @@ const CreatePost = () => {
         setAddError(err);
         setAddPending(false);
       });
+
+}else {
+  alert("Error: input image")
+}
+    
   }
 
   function handleImage(e) {
@@ -134,10 +136,10 @@ const CreatePost = () => {
               setPostDetails({ ...postDetails, views: e.target.value });
             }}
           />
-          <label> image:</label>
+          <label> post cover:</label>
           <input
             type="file"
-            
+            required
             accept="image/*"
             value={postDetails.image}
             onChange={handleImage}

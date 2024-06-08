@@ -1,17 +1,29 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import useFetchImage from "../hooks/useFetchImage";
 
 const Post = ({ post }) => {
 const navigate = useNavigate()
+const {imgPending, imgFinished, imgError, stringImg} = useFetchImage(post.id)
+imgFinished && console.log("image loaded successfully")
 
   function handlePostDelete () {
+
+    fetch(`http://localhost:7000/images/${post.id}`, {
+      method: "DELETE",
+    }).catch((err) => {
+      alert("err")
+    })
+
+
+
     fetch(`http://localhost:8000/posts/${post.id}`, {
       method: "DELETE"
     }).then((response) => {
       return response.json()
 
     }).then((deletedPost) => {
-      alert(`post ${post.title} deleted`)
+      alert(`post: ${post.title} deleted`)
       // ask chat gpt for better way to do this because it is bad as fuck how will i delete a post in the home page and it will take me to blog :(      navigate('/blogs')
       console.log(deletedPost)
     }).catch(error => {
@@ -19,12 +31,15 @@ const navigate = useNavigate()
     })
   }
 
-  const imagePath = require(`../images/post-covers/${post.id}.webp`)
+  // const imagePath = require(`../images/post-covers/${post.id}.webp`)
   return (
     <div className="unit-blog">
       <div className="up">
         <Link to={`/post/${post.id}`}>
-          <img className="blog-image" src={imagePath} alt="post cover" />
+
+          {imgFinished && <img className="blog-image" src={stringImg} alt="post cover " />}
+          {imgPending && 'image loading......'}
+          {imgError && `${imgError}`}
         </Link>
       </div>
       <div className="down">
