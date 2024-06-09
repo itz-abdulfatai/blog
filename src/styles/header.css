@@ -10,7 +10,12 @@
     top: 0;
     left: 0;
     right: 0;
+    max-width: 100vh;
     z-index: 999;
+  }
+
+  .menu-btn {
+    display: none;
   }
   
   .logo {
@@ -32,4 +37,98 @@
   
   nav a:hover {
     color: var(--accent-primary);
+  }
+
+  @media (max-width: 1120px) {
+    .header {
+      padding: 10px 5px;
+
+    }
+
+    .logo {
+      width: 180px;
+    }
+
+    nav {
+      gap: 20px;
+    }
+  
+
+  
+  }
+
+
+  @media (max-width: 850px) {
+    .header {
+      position: fixed;
+      display: flex;
+      padding: 10px 30px;
+
+    }
+    .menu-btn {
+      display: block;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 1.7rem;
+      z-index: 999;
+    }
+
+    nav {
+      position: absolute;
+      top: -300px;
+      right: 0;
+      flex-direction: column;
+      justify-content: stretch;
+      gap: 0;
+      width: 50vw;
+      background-color: var(--bg-primary);
+      padding-top: 100px;
+      z-index: 998;
+      transition: top .5s ease;
+
+      
+    }
+
+    .nav-expanded {
+      top: 0;
+    }
+
+    nav a {
+      padding: 10px;
+    }
+
+    nav a:hover {
+      color: var(--bg-primary);
+      background-color: var(--bg-secondary);
+    }
+
+    
+  }
+
+
+  @media (max-width: 550px) {
+    nav {
+      width: 100vw;
+      background-color: var(--bg-primary);
+      padding: 80px 20px 0 20px;
+      z-index: 998;
+      transition: top .5s ease;
+
+      
+    }
+
+    .nav-expanded {
+      top: 0;
+    }
+
+    nav a {
+      padding: 10px;
+    }
+
+    nav a:hover {
+      color: var(--bg-primary);
+      background-color: var(--bg-secondary);
+    }
+
+    
   }

@@ -52,7 +52,6 @@
   position: relative;
 }
 
-
 .home-main .blogs-inner .unit-blog:nth-of-type(1)::before {
   content: "featured";
   position: absolute;
@@ -65,14 +64,12 @@
   padding: 5px 10px;
   color: var(--bg-secondary);
   font-weight: 700;
-  border-radius:  0 10px 10px 0;
+  border-radius: 0 10px 10px 0;
   font-family: sans-serif;
   text-transform: capitalize;
   border: none;
   border-left: solid 3px var(--bg-secondary);
-
 }
-
 
 .home-main .blogs-inner .unit-blog:nth-of-type(1) .up {
   position: absolute;
@@ -181,3 +178,104 @@
   text-decoration-color: var(--accent-primary);
 }
 
+@media (max-width: 850px) {
+  .home-main .blogs-inner .unit-blog:nth-of-type(1) .down {
+    padding: 30px 10px;
+  }
+
+  .home-main .blogs-inner .unit-blog .down .description {
+    gap: 10px;
+  }
+
+  .home-main .blogs-inner .unit-blog .down .snippet p {
+    font-size: 0.9rem;
+    line-height: 1.1rem;
+  }
+  .home-main .blogs-inner .unit-blog:nth-of-type(2),
+  .home-main .blogs-inner .unit-blog:nth-of-type(3) {
+    grid-template-columns: 50% 50%;
+  }
+
+  .home-main .blogs-inner .unit-blog:nth-of-type(2) .down,
+  .home-main .blogs-inner .unit-blog:nth-of-type(3) .down {
+    padding: 10px;
+  }
+
+  .home-main .blogs-inner .unit-blog:nth-of-type(2) h3,
+  .home-main .blogs-inner .unit-blog:nth-of-type(3) h3 {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 782px) {
+  .home-main section.hero {
+    display: flex;
+    justify-content: center;
+  }
+
+  .home-main .hero .intro {
+    align-items: center;
+  }
+
+  .home-main .intro h2 {
+    text-align: center;
+  }
+
+  .home-main .Big-text {
+    text-align: center;
+  }
+}
+
+@media (max-width: 682px) {
+  .home-main section.hero {
+    height: 60vh;
+  }
+  .home-main .hero .intro {
+    justify-content: flex-start;
+    padding-top: 50px;
+  }
+
+  .home-main .intro .Big-text {
+    font-size: 2rem;
+  }
+}
+
+
+@media (max-width: 667px) {
+  .home-main .blogs-inner {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    
+  }
+
+  .home-main .blogs-inner .unit-blog:nth-of-type(1)::before {
+    padding: 4px 8px;
+    font-weight: 600;
+    border-radius: 0 8px 8px 0;
+    border-left: solid 2px var(--bg-secondary);
+    top: 10px;
+    left: 10px;
+  }
+
+  .blogs {
+    min-height: 130vh;
+
+  }
+
+  .home-main .blogs-inner .unit-blog {
+    display: flex;
+    height: 200px;
+
+
+    
+  }
+
+  .home-main .blogs-inner .unit-blog .up,
+  .home-main .blogs-inner .unit-blog .down{ 
+    position: unset;
+    
+  }
+
+  
+}
