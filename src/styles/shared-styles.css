@@ -221,6 +221,52 @@ footer {
 }
 
 
+@media (max-width:950px) {
+  footer {
+    padding: 10px 40px;
+    /* display: flex; */
+    flex-direction: column;
+    /* justify-content: space-between; */
+    align-items: center;
+    background-color: var(--bg-secondary);
+    gap: 30px;
+    /* height: 50px; */
+  }
+
+  section.get-started {
+    background-size: 300%;
+    background-position-y: center;
+  }
+
+  section.get-started .inner {
+    width: 100%;
+    box-sizing: unset;
+  }
+
+  
+  section.get-started .inner h2 {
+    font-size: 1rem;
+    text-align: center;
+  }
+  
+  section.get-started .inner .cta-input {
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  section.get-started .inner .cta-input input {
+    width: 70%;
+    text-align: center;
+  }
+  
+
+  
+}
+
+
 @media (max-width: 850px) {
   .readmore-cta a {
     padding: 7px 10px;
@@ -281,3 +327,6 @@ footer {
   }
   
 }
+
+
+

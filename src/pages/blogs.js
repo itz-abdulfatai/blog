@@ -6,7 +6,7 @@ import Post from '../components/post';
 const Blogs = () => {
 
     const { data, error, isPending, randomisedPosts, finished } = UseFetchPost(
-        "http://localhost:8000/posts"
+        "http://192.168.43.3:8000/posts"
       );
 
     return ( 

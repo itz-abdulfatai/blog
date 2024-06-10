@@ -11,7 +11,7 @@ const useFetchImage = (id) => {
   useEffect(() => {
     const abortCont = new AbortController();
 
-    fetch(`http://localhost:7000/images/${id}`, { signal: abortCont.signal })
+    fetch(`http://192.168.43.3:7000/images/${id}`, { signal: abortCont.signal })
       .then((response) => {
         if (response.ok) {
           return response.json();

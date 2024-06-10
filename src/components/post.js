@@ -9,7 +9,7 @@ imgFinished && console.log("image loaded successfully")
 
   function handlePostDelete () {
 
-    fetch(`http://localhost:7000/images/${post.id}`, {
+    fetch(`http://192.168.43.3:7000/images/${post.id}`, {
       method: "DELETE",
     }).catch((err) => {
       alert("err")
@@ -17,7 +17,7 @@ imgFinished && console.log("image loaded successfully")
 
 
 
-    fetch(`http://localhost:8000/posts/${post.id}`, {
+    fetch(`http://192.168.43.3:8000/posts/${post.id}`, {
       method: "DELETE"
     }).then((response) => {
       return response.json()

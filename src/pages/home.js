@@ -7,7 +7,7 @@ import Post from "../components/post";
 
 const Home = () => {
   const { data, error, isPending, randomisedPosts, finished } = UseFetchPost(
-    "http://localhost:8000/posts"
+    "http://192.168.43.3:8000/posts"
   );
 
   console.log(data, randomisedPosts, error, isPending, finished);
