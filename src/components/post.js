@@ -5,7 +5,7 @@ import useFetchImage from "../hooks/useFetchImage";
 const Post = ({ post }) => {
 const navigate = useNavigate()
 const {imgPending, imgFinished, imgError, stringImg} = useFetchImage(post.id)
-imgFinished && console.log("image loaded successfully")
+// imgFinished && console.log("image loaded successfully")
 
   function handlePostDelete () {
 
@@ -25,7 +25,7 @@ imgFinished && console.log("image loaded successfully")
     }).then((deletedPost) => {
       alert(`post: ${post.title} deleted`)
       // ask chat gpt for better way to do this because it is bad as fuck how will i delete a post in the home page and it will take me to blog :(      navigate('/blogs')
-      console.log(deletedPost)
+      // console.log(deletedPost)
     }).catch(error => {
       alert(error)
     })

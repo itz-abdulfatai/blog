@@ -26,7 +26,7 @@ const CreatePost = () => {
   function handleSubmit(e) {
     let id = `${Math.floor(Math.random() * 999)}${Math.floor(Math.random() * 99)}`;
 if (stringImage !== "") {
-  console.log(id);
+  // console.log(id);
     setAddPending(true);
     e.preventDefault();
 

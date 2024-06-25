@@ -38,7 +38,7 @@ const Blog = () => {
   if (singleBlogError) {
     console.error(singleBlogError);
   } else if (singleBlogFinished) {
-    console.log("blog loaded successfully");
+    // console.log("blog loaded successfully");
   }
 
   function handleAddComment(e) {
@@ -48,12 +48,12 @@ const Blog = () => {
     fetch(`https://coherent-succinct-zircon.glitch.me/api/posts/${id}`)
       .then((response) => {
         if (response.ok) {
-          console.log("response was succesfull");
+          // console.log("response was succesfull");
           return response.json();
         }
       })
       .then(async (post) => {
-        console.log(post);
+        // console.log(post);
         post.comments.push(newComment);
 
         try {
@@ -64,7 +64,7 @@ const Blog = () => {
           });
           const updatedPost = await response.json();
 
-          console.log("post updated", updatedPost);
+          // console.log("post updated", updatedPost);
           setSingleBlog(updatedPost);
           setNewComment({ name: "", comment: "" });
           setAddPending(false);
@@ -84,12 +84,12 @@ const Blog = () => {
     fetch(`https://coherent-succinct-zircon.glitch.me/api/posts/${id}`)
       .then((response) => {
         if (response.ok) {
-          console.log("delete Response was successful");
+          // console.log("delete Response was successful");
           return response.json();
         }
       })
       .then(async (post) => {
-        console.log(post);
+        // console.log(post);
 
         // Remove the comment at the specified index
         post.comments.splice(commentIndex, 1);
@@ -102,7 +102,7 @@ const Blog = () => {
           });
           const updatedPost = await response.json();
 
-          console.log("Post updated", updatedPost);
+          // console.log("Post updated", updatedPost);
           setSingleBlog(updatedPost);
           setDeletePending(false);
         } catch (error) {
@@ -130,7 +130,7 @@ const Blog = () => {
         return response.json();
       })
       .then((deletedPost) => {
-        console.log(deletedPost);
+        // console.log(deletedPost);
         alert(` post: ${singleBlog.title} deleted`);
         navigate("/blogs");
       })

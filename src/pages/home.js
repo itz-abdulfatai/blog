@@ -10,7 +10,7 @@ const Home = () => {
     "https://coherent-succinct-zircon.glitch.me/api/posts"
   );
 
-  console.log(data, randomisedPosts, error, isPending, finished);
+  // console.log(data, randomisedPosts, error, isPending, finished);
 
   return (
     <main className="home-main">
