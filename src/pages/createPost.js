@@ -30,7 +30,7 @@ if (stringImage !== "") {
     setAddPending(true);
     e.preventDefault();
 
-    fetch("http://192.168.43.3:8000/posts", {
+    fetch("https://coherent-succinct-zircon.glitch.me/api/posts", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify({
@@ -46,7 +46,7 @@ if (stringImage !== "") {
       }),
     })
       .then(() => {
-        fetch("http://192.168.43.3:7000/images", {
+        fetch("https://coherent-succinct-zircon.glitch.me/api/images", {
           headers: { "content-type": "application/json" },
           method: "POST",
           body: JSON.stringify({

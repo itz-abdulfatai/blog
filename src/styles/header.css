@@ -34,6 +34,10 @@
     color: var(--bg-secondary);
     font-size: 1.2rem;
   }
+
+  .far {
+    background-color: var(--bg-primary);
+  }
   
   nav a:hover {
     color: var(--accent-primary);

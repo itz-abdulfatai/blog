@@ -11,7 +11,7 @@ const useFetchImage = (id) => {
   useEffect(() => {
     const abortCont = new AbortController();
 
-    fetch(`http://192.168.43.3:7000/images/${id}`, { signal: abortCont.signal })
+    fetch(`https://coherent-succinct-zircon.glitch.me/api/images/${id}`, { signal: abortCont.signal })
       .then((response) => {
         if (response.ok) {
           return response.json();

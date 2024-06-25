@@ -26,7 +26,7 @@ const Blog = () => {
     finished,
     randomisedPosts,
     error,
-  } = UseFetchPost("http://192.168.43.3:8000/posts");
+  } = UseFetchPost("https://coherent-succinct-zircon.glitch.me/api/posts");
 
   let {
     data: singleBlog,
@@ -34,7 +34,7 @@ const Blog = () => {
     finished: singleBlogFinished,
     error: singleBlogError,
     setData: setSingleBlog,
-  } = UseFetchSinglePost(`http://192.168.43.3:8000/posts/${id}`);
+  } = UseFetchSinglePost(`https://coherent-succinct-zircon.glitch.me/api/posts/${id}`);
   if (singleBlogError) {
     console.error(singleBlogError);
   } else if (singleBlogFinished) {
@@ -45,7 +45,7 @@ const Blog = () => {
     setAddPending(true);
     e.preventDefault();
 
-    fetch(`http://192.168.43.3:8000/posts/${id}`)
+    fetch(`https://coherent-succinct-zircon.glitch.me/api/posts/${id}`)
       .then((response) => {
         if (response.ok) {
           console.log("response was succesfull");
@@ -57,7 +57,7 @@ const Blog = () => {
         post.comments.push(newComment);
 
         try {
-          const response = await fetch(`http://192.168.43.3:8000/posts/${id}`, {
+          const response = await fetch(`https://coherent-succinct-zircon.glitch.me/api/posts/${id}`, {
             method: "PATCH",
             headers: { "content-type": "application/json" },
             body: JSON.stringify({ comments: post.comments }),
@@ -81,7 +81,7 @@ const Blog = () => {
   function handleDeleteComment(commentIndex) {
     setDeletePending(true);
 
-    fetch(`http://192.168.43.3:8000/posts/${id}`)
+    fetch(`https://coherent-succinct-zircon.glitch.me/api/posts/${id}`)
       .then((response) => {
         if (response.ok) {
           console.log("delete Response was successful");
@@ -95,7 +95,7 @@ const Blog = () => {
         post.comments.splice(commentIndex, 1);
 
         try {
-          const response = await fetch(`http://192.168.43.3:8000/posts/${id}`, {
+          const response = await fetch(`https://coherent-succinct-zircon.glitch.me/api/posts/${id}`, {
             method: "PATCH",
             headers: { "content-type": "application/json" },
             body: JSON.stringify({ comments: post.comments }),
@@ -116,14 +116,14 @@ const Blog = () => {
 
   function handlePostDelete() {
 
-    fetch(`http://192.168.43.3:7000/images/${id}`, {
+    fetch(`https://coherent-succinct-zircon.glitch.me/api/images/${id}`, {
       method: "DELETE",
     }).catch((err) => {
       alert("err")
     })
 
 
-    fetch(`http://192.168.43.3:8000/posts/${id}`, {
+    fetch(`https://coherent-succinct-zircon.glitch.me/api/posts/${id}`, {
       method: "DELETE",
     })
       .then((response) => {

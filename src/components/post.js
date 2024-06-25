@@ -9,7 +9,7 @@ imgFinished && console.log("image loaded successfully")
 
   function handlePostDelete () {
 
-    fetch(`http://192.168.43.3:7000/images/${post.id}`, {
+    fetch(`https://coherent-succinct-zircon.glitch.me/api/images/${post.id}`, {
       method: "DELETE",
     }).catch((err) => {
       alert("err")
@@ -17,7 +17,7 @@ imgFinished && console.log("image loaded successfully")
 
 
 
-    fetch(`http://192.168.43.3:8000/posts/${post.id}`, {
+    fetch(`https://coherent-succinct-zircon.glitch.me/api/posts/${post.id}`, {
       method: "DELETE"
     }).then((response) => {
       return response.json()

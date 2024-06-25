@@ -7,12 +7,26 @@ import { useLocation } from "react-router-dom";
 const Header = () => {
   const [expanded, setExpanded] = useState(false);
   const location = useLocation();
+  const [far, setFar] = useState(false);
+  const [offset, setOffset] = useState(window.scrollY)
 
-  useEffect(() => {setExpanded(false)}, [location])
+  useEffect(() => {
+    setExpanded(false);
+  }, [location]);
 
   window.addEventListener("scroll", () => {
     setExpanded(false);
+    setOffset(window.scrollY)
   });
+
+  useEffect(() => {
+    if (window.scrollY > window.innerHeight) {
+      setFar(true);
+      // console.log("far");
+    } else {
+      setFar(false)
+    }
+  }, [location, offset]);
 
   // document.body.addEventListener("click", (e) => {
   //   if (e.target !== nav && expanded) {
@@ -38,7 +52,7 @@ const Header = () => {
   };
 
   return (
-    <div className="header">
+    <div className={far ? "header far" : "header"}>
       <Link to="/">
         <img src={logo} alt="" className="logo" />
       </Link>

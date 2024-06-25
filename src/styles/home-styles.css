@@ -126,7 +126,7 @@
   -webkit-line-clamp: 1;
 }
 
-.home-main .post-delete-button {
+.home-main .post-delete-button, .post-main .post-delete-button {
   display: none;
 }
 
